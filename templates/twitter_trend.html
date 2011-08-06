@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StartCode</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="i/favicon.ico">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <h2>TRENDS!</h2>
+    <ul>
+    {% for trend in trends %}
+    <li><b>{{trend}}</b></li>
+    
+    {% endfor %}
+    </ul>
+</body>
+
+</html>

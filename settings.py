@@ -1,10 +1,14 @@
 # Django settings for Featherview project.
 
+from os.path import realpath, dirname, join
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+proj_dir = dirname(realpath(__file__))
+
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Jarrett Cruger', 'jcrugzz@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -106,6 +110,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    join(proj_dir, 'templates')
 )
 
 INSTALLED_APPS = (
@@ -115,10 +120,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'twitter_trend',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admindocs',
 )
 
 # A sample logging configuration. The only tangible logging
