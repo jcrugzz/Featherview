@@ -64,7 +64,9 @@ body {
 .mbm { margin-bottom: 10px; }
 .mbl { margin-bottom: 20px; }
 
-
+.masonry {
+  margin: 0 auto;
+}
 
 .masonry div {
   width:200px;
