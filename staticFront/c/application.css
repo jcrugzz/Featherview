@@ -72,7 +72,7 @@ body {
   width:200px;
   height:200px;
   background:#fff;
-  margin-top:10px;
+  margin-top:15px;
 }
 
 
@@ -115,15 +115,15 @@ h1 {
 #options {
   position:fixed;
   right:0;
-  bottom:0;
+  top:0;
   z-index:100;
   text-align:center;
-  -moz-border-radius-topleft: 6px;
+  -moz-border-radius-topleft: 0px;
   -moz-border-radius-topright: 0px;
   -moz-border-radius-bottomright: 0px;
-  -moz-border-radius-bottomleft: 0px;
-  -webkit-border-radius: 6px 0px 0px 0px;
-  border-radius: 6px 0px 0px 0px;
+  -moz-border-radius-bottomleft: 6px;
+  -webkit-border-radius: 0px 0px 0px 6px;
+  border-radius: 0px 0px 0px 6px;
   -webkit-transition: all 200ms ease-in;
   -moz-transition: all 200ms ease-in;
   -o-transition: all 200ms ease-in;
@@ -134,6 +134,7 @@ h1 {
 
 #options img {
   margin:5px;
+  display:none;
 }
 
 #options:hover {
@@ -142,8 +143,9 @@ h1 {
 
 #optionsBar {
   width:100%;
+  margin: 0 auto;
   position:fixed;
-  height:1px;
-  bottom:0;
+  height:0px;
+  top:0;
   z-index:99;
 }
