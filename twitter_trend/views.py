@@ -16,7 +16,6 @@ def twitter_trend(request):
 
     flickr = FlickrAPI(api_key)
     photos_for_trends = dict()
-    import pdb; pdb.set_trace()
     for trend in trends:
         trend_name = trend.name
         if '#' in trend_name:
