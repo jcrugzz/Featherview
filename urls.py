@@ -8,7 +8,8 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'Featherview.views.home', name='home'),
     # url(r'^Featherview/', include('Featherview.foo.urls')),
-    url(r'^twitter_trend/$', 'Featherview.twitter_trend.views.twitter_trend', ),
+    url(r'twitter_trend', 'Featherview.views.twitter_trend', ),
+    url(r'^index/$', 'Featherview.views.index'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
