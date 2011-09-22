@@ -1,12 +1,9 @@
 $(document).ready(function(){
-    $.ajax({
-        url: "twitter_trend",
-        type: "POST",
-        success: function(data) {
-            debugVar = data;
-        }
+    $.get("twitter_trend", function(data) {
+        trends = $("#trends").html();
+        $("#trends").html(trends + data);
     });
-
+  
     $('.masonry').masonry({
       // options...
       gutterWidth: 10,

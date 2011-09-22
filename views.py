@@ -29,23 +29,27 @@ def twitter_trend(request):
         trend_name = trend.name
         if '#' in trend_name:
             trend_name = trend_name.lstrip('#')
-        photo_dict = dict()
+        photo_list = list()
         count = 0
         for photo in flickr.walk(text=trend_name, safe_search=1,
                                             content_type=7, per_page=2):
             count += 1
             photo_id = photo.get('id')
             photo_url = shorturl.url(photo_id)
-            photo_dict[photo_id] = photo_url
+            photo_list.append(photo_url)
             if count == 2:
                 break
 
         
         if count != 0 :
-            photos_for_trends[trend_name] = photo_dict
+            photos_for_trends[trend_name] = photo_list
 
-    data = {'photos': photos_for_trends }
-    json = simplejson.dumps(data)
-
-    return HttpResponse(json, content_type='application/json')
+    html_output_array = list()
+    response = HttpResponse()
+    for name, url_array in photos_for_trends.iteritems():
+        for url in url_array:
+            value = "<div class='masonry-brick'><img class='" + name + "' src='" + url + "'/></div>"
+            response.write(value)
+    
+    return response
 
