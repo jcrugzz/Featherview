@@ -14,11 +14,11 @@ api_key = '133d83e98d25f8bc60b9aa7dbbe4d61e'
 def index(request):
     c ={}
     context = RequestContext(request) 
+    context["photos_for_trends"] = twitter_trend()
 
     return render_to_response('index.html', context, c)
 
-@csrf_exempt
-def twitter_trend(request):
+def twitter_trend():
 
     api = twitter.Api()
     trends = api.GetTrendsCurrent()
@@ -35,7 +35,12 @@ def twitter_trend(request):
                                             content_type=7, per_page=2):
             count += 1
             photo_id = photo.get('id')
-            photo_url = shorturl.url(photo_id)
+            farm_id = photo.get('farm')
+            server_id = photo.get('server')
+            secret = photo.get('secret')
+            photo_url = \
+                "http://farm" +  farm_id + ".static.flickr.com/" + server_id + "/" + \
+                    photo_id + "_" + secret +"_z.jpg"
             photo_list.append(photo_url)
             if count == 2:
                 break
@@ -44,12 +49,5 @@ def twitter_trend(request):
         if count != 0 :
             photos_for_trends[trend_name] = photo_list
 
-    html_output_array = list()
-    response = HttpResponse()
-    for name, url_array in photos_for_trends.iteritems():
-        for url in url_array:
-            value = "<div class='masonry-brick'><img class='" + name + "' src='" + url + "'/></div>"
-            response.write(value)
-    
-    return response
+    return photos_for_trends 
 
