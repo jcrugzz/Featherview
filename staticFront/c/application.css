@@ -79,6 +79,12 @@ img {
   float:left;
 }
 
+#item p {
+  margin-top:45%;
+  text-align:center;
+  display:none;
+}
+
 
 #trends,
 #trends .item {

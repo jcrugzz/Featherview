@@ -1,3 +1,5 @@
+/* Masonry Load *////////////////////////////////
+
 $('#trends').imagesLoaded( function(){
     $('#trends').masonry({
       // options...
@@ -14,8 +16,15 @@ $('#trends').imagesLoaded( function(){
     });
 });
 
-    $('#options').toggle
 
+/* Item Text *////////////////////////////////
+
+
+
+
+/* Options Bar *////////////////////////////////
+
+$('#options').toggle
 
 setTimeout(function(){
 $('#options').animate({
@@ -43,6 +52,8 @@ $('#options').click(function(){
         options = false;
     }
 });
+
+/* Ajax *////////////////////////////////
 
 $(document).ajaxSend(function(event, xhr, settings) {
     function getCookie(name) {
