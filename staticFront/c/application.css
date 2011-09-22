@@ -17,6 +17,10 @@ body {
   width: 100%;
 }
 
+img {
+  max-width: 100%;
+}
+
 /* Utilities
  --------------------------------------- */
 
@@ -69,8 +73,7 @@ body {
 }
 
 .masonry div {
-  width:200px;
-  height:200px;
+  max-width:400px;
   background:#fff;
   margin-top:15px;
 }
