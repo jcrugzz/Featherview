@@ -7,8 +7,8 @@ from django.template import RequestContext
 from django.utils import simplejson
 import twitter
 from flickrapi import shorturl, FlickrAPI
-import otherSettings
 
+api_key = '133d83e98d25f8bc60b9aa7dbbe4d61e'
 
 @requires_csrf_token
 def index(request):
@@ -22,8 +22,6 @@ def twitter_trend():
 
     api = twitter.Api()
     trends = api.GetTrendsCurrent()
-
-    api_key = otherSettings.get_flickr_key()
 
     flickr = FlickrAPI(api_key)
     photos_for_trends = dict()
