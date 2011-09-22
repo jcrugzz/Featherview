@@ -5,8 +5,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 /* Structure
  --------------------------------------- */
 
-html, body {
-  height: 100%;
+html {
+  min-height:100%
 }
 
 body {
@@ -19,6 +19,7 @@ body {
 
 img {
   max-width: 100%;
+  height:auto;
 }
 
 /* Utilities
@@ -70,12 +71,14 @@ img {
 
 .masonry {
   margin: 0 auto;
+  height:100% !important;
 }
 
 .masonry div {
   max-width:400px;
   background:#fff;
   margin-top:15px;
+  float:left;
 }
 
 
@@ -105,6 +108,11 @@ img {
 #options,
 #optionsBar {
   background:#1a9bff;
+}
+
+#logo {
+  width: 400px;
+  height: 200px;
 }
 
 h1 {
