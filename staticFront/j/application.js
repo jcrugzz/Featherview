@@ -1,6 +1,7 @@
-$(document).ready(function(){
-    $('.masonry').masonry({
+$('#trends').imagesLoaded( function(){
+    $('#trends').masonry({
       // options...
+      itemSelector: '.item',
       gutterWidth: 10,
       isFitWidth: true,
       isResizable: true,
@@ -11,10 +12,10 @@ $(document).ready(function(){
         queue: false
       }
     });
+});
 
     $('#options').toggle
 
-});
 
 setTimeout(function(){
 $('#options').animate({
@@ -39,7 +40,7 @@ $('#options').click(function(){
             $('#optionsBar').animate({height:'0'},150);
             $('.masonry').animate({marginTop:'0'},250);
         });
-        options = false;        
+        options = false;
     }
 });
 

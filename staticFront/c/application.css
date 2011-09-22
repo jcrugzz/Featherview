@@ -69,42 +69,40 @@ img {
 .mbm { margin-bottom: 10px; }
 .mbl { margin-bottom: 20px; }
 
-.masonry {
+#trends {
   margin: 0 auto;
-  height:100% !important;
 }
 
-.masonry div {
+#trends .item {
   max-width:400px;
-  background:#fff;
   margin-top:15px;
   float:left;
 }
 
 
-.masonry,
-.masonry .masonry-brick {
+#trends,
+#trends .item {
   -webkit-transition-duration: 0.7s;
      -moz-transition-duration: 0.7s;
        -o-transition-duration: 0.7s;
           transition-duration: 0.7s;
 }
 
-.masonry {
+#trends {
   -webkit-transition-property: height, width;
      -moz-transition-property: height, width;
        -o-transition-property: height, width;
           transition-property: height, width;
 }
 
-.masonry .masonry-brick {
+#trends .item {
   -webkit-transition-property: left, right, top;
      -moz-transition-property: left, right, top;
        -o-transition-property: left, right, top;
           transition-property: left, right, top;
 }
 
-#logo,
+.item,
 #options,
 #optionsBar {
   background:#1a9bff;

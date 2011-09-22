@@ -1,20 +1,17 @@
 {% extends "base_site.html" %}
 
 {% block content %}
-    <div id="trends" class="masonry">
-        <div id="logo">
+    <div id="trends">
+        <div id="logo" class="item">
             <h1>FEATHERVIEW</h1>
         </div>
         {% for name, url_array in photos_for_trends.items %}
             {% for photo in url_array %}
-                <div>
+                <div class="item">
                     <img src="{{photo}}"/>
                     <p>{{name}}</p>
                 </div>
             {% endfor %}
         {% endfor %}
-
     </div>
-
-
 {% endblock %}
