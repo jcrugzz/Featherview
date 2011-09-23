@@ -79,10 +79,20 @@ img {
   float:left;
 }
 
-#item p {
-  margin-top:45%;
+.item p {
+  position: absolute;
+  top:45%;
+  left:45%;
   text-align:center;
+  color:#fff;
+}
+
+.item .tag {
   display:none;
+  height:100%;
+  width:100%;
+  position:absolute;
+  background: #f1b430;
 }
 
 

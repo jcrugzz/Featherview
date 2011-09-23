@@ -8,8 +8,10 @@
         {% for name, url_array in photos_for_trends.items %}
             {% for photo in url_array %}
                 <div class="item">
+                    <div class="tag">
+                        <p>#{{name}}</p>
+                    </div>
                     <img src="{{photo}}"/>
-                    <p>#{{name}}</p>
                 </div>
             {% endfor %}
         {% endfor %}

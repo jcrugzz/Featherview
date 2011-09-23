@@ -2,9 +2,8 @@
 
 $('#trends').imagesLoaded( function(){
     $('#trends').masonry({
-      // options...
       itemSelector: '.item',
-      gutterWidth: 10,
+      gutterWidth: 15,
       isFitWidth: true,
       isResizable: true,
       isAnimated: !Modernizr.csstransitions,
@@ -19,7 +18,14 @@ $('#trends').imagesLoaded( function(){
 
 /* Item Text *////////////////////////////////
 
-
+$('.item').hover(
+    function(){
+        $(this).find('.tag').fadeIn(200);
+    },
+    function(){
+        $(this).find('.tag').fadeOut(200);
+    }
+);
 
 
 /* Options Bar *////////////////////////////////
