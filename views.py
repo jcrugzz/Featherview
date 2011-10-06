@@ -5,22 +5,24 @@ from django.views.decorators.csrf import requires_csrf_token, csrf_exempt
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.utils import simplejson
-import twitter
+import tweepy
 from flickrapi import shorturl, FlickrAPI
 import otherSettings
 
 
 @requires_csrf_token
 def index(request):
-    c ={}
-    context = RequestContext(request) 
+
+    c = {}
+    context = RequestContext(request)
     context["photos_for_trends"] = twitter_trend()
 
     return render_to_response('index.html', context, c)
 
+
 def twitter_trend():
 
-    api = twitter.Api()
+    api = tweepy.API()
     trends = api.GetTrendsCurrent()
 
     api_key = otherSettings.get_flickr_key()
@@ -29,6 +31,7 @@ def twitter_trend():
     photos_for_trends = dict()
     for trend in trends:
         trend_name = trend.name
+
         if '#' in trend_name:
             trend_name = trend_name.lstrip('#')
         photo_list = list()
@@ -41,15 +44,13 @@ def twitter_trend():
             server_id = photo.get('server')
             secret = photo.get('secret')
             photo_url = \
-                "http://farm" +  farm_id + ".static.flickr.com/" + server_id + "/" + \
-                    photo_id + "_" + secret +"_z.jpg"
+                "http://farm" + farm_id + ".static.flickr.com/" + server_id + "/" + \
+                    photo_id + "_" + secret + "_z.jpg"
             photo_list.append(photo_url)
             if count == 2:
                 break
 
-        
-        if count != 0 :
+        if count != 0:
             photos_for_trends[trend_name] = photo_list
 
-    return photos_for_trends 
-
+    return photos_for_trends
