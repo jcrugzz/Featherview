@@ -23,14 +23,15 @@ def index(request):
 def twitter_trend():
 
     api = tweepy.API()
-    trends = api.GetTrendsCurrent()
+    # Location set to 1 for World Trends (Location independent)
+    data = api.trends_location(1)
 
     api_key = otherSettings.get_flickr_key()
 
     flickr = FlickrAPI(api_key)
     photos_for_trends = dict()
-    for trend in trends:
-        trend_name = trend.name
+    for trend in data[0]["trends"]:
+        trend_name = trend["name"]
 
         if '#' in trend_name:
             trend_name = trend_name.lstrip('#')
