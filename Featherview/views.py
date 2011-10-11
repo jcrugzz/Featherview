@@ -7,7 +7,7 @@ from django.template import RequestContext
 from django.utils import simplejson
 import tweepy
 from flickrapi import shorturl, FlickrAPI
-import otherSettings
+from APIs.models import Api
 
 
 @requires_csrf_token
@@ -26,7 +26,8 @@ def twitter_trend():
     # Location set to 1 for World Trends (Location independent)
     data = api.trends_location(1)
 
-    api_key = otherSettings.get_flickr_key()
+    api_obj = Api.objects.get(name='flickr')
+    api_key = api_obj.key
 
     flickr = FlickrAPI(api_key)
     photos_for_trends = dict()
