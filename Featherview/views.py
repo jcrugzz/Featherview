@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.utils import simplejson
 import tweepy
-from flickrapi import shorturl, FlickrAPI
+from flickrapi import FlickrAPI
 from APIs.models import Api
 
 
